@@ -1,57 +1,76 @@
 
 /* CSS HEX */
---sweet-brown: #ac3931ff;
---arylide-yellow: #e5d352ff;
---maximum-green-yellow: #d9e76cff;
---teal-blue: #537d8dff;
---dark-byzantium: #482c3dff;
-
-/* CSS HSL */
---sweet-brown: hsla(4, 56%, 43%, 1);
---arylide-yellow: hsla(53, 74%, 61%, 1);
---maximum-green-yellow: hsla(67, 72%, 66%, 1);
---teal-blue: hsla(197, 26%, 44%, 1);
---dark-byzantium: hsla(324, 24%, 23%, 1);
-
-/* SCSS HEX */
-$sweet-brown: #ac3931ff;
-$arylide-yellow: #e5d352ff;
-$maximum-green-yellow: #d9e76cff;
-$teal-blue: #537d8dff;
-$dark-byzantium: #482c3dff;
-
-/* SCSS HSL */
-$sweet-brown: hsla(4, 56%, 43%, 1);
-$arylide-yellow: hsla(53, 74%, 61%, 1);
-$maximum-green-yellow: hsla(67, 72%, 66%, 1);
-$teal-blue: hsla(197, 26%, 44%, 1);
-$dark-byzantium: hsla(324, 24%, 23%, 1);
-
-/* SCSS RGB */
-$sweet-brown: rgba(172, 57, 49, 1);
-$arylide-yellow: rgba(229, 211, 82, 1);
-$maximum-green-yellow: rgba(217, 231, 108, 1);
-$teal-blue: rgba(83, 125, 141, 1);
-$dark-byzantium: rgba(72, 44, 61, 1);
-
-/* SCSS Gradient */
-$gradient-top: linear-gradient(0deg, #ac3931ff, #e5d352ff, #d9e76cff, #537d8dff, #482c3dff);
-$gradient-right: linear-gradient(90deg, #ac3931ff, #e5d352ff, #d9e76cff, #537d8dff, #482c3dff);
-$gradient-bottom: linear-gradient(180deg, #ac3931ff, #e5d352ff, #d9e76cff, #537d8dff, #482c3dff);
-$gradient-left: linear-gradient(270deg, #ac3931ff, #e5d352ff, #d9e76cff, #537d8dff, #482c3dff);
-$gradient-top-right: linear-gradient(45deg, #ac3931ff, #e5d352ff, #d9e76cff, #537d8dff, #482c3dff);
-$gradient-bottom-right: linear-gradient(135deg, #ac3931ff, #e5d352ff, #d9e76cff, #537d8dff, #482c3dff);
-$gradient-top-left: linear-gradient(225deg, #ac3931ff, #e5d352ff, #d9e76cff, #537d8dff, #482c3dff);
-$gradient-bottom-left: linear-gradient(315deg, #ac3931ff, #e5d352ff, #d9e76cff, #537d8dff, #482c3dff);
-$gradient-radial: radial-gradient(#ac3931ff, #e5d352ff, #d9e76cff, #537d8dff, #482c3dff);
-
+:root {
+    --sweet-brown: #ac3931ff;
+    --arylide-yellow: #e5d352ff;
+    --maximum-green-yellow: #d9e76cff;
+    --teal-blue: #537d8dff;
+    --dark-byzantium: #482c3dff;
+    --pale-purple-pantone: #f1e3f3ff;
+    --olive-drab-7: #312509ff;
+    --xanadu: #808f85ff;
+}
 
 body{
-    color: azure;
-    background-color: blue;
     font-family: 'Courier New', Courier, monospace;
+    background-color:cadetblue;
 }
 
-p {
-    padding: auto;
+.body-holder {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    height: 100%;
 }
+
+.top-holder {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--pale-purple-pantone);
+    margin: 3%;
+    height: 75%;
+    width: 80%;
+    padding: 25px;
+    border: 3px seashell solid;
+    
+}
+
+.imgbox{
+    width: 250px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 5px #000 solid;
+    margin: 0px 15px;
+
+}
+
+.imgbox img {
+	height: 100%;
+	clip-path: inset( 50px 420px 50px 420px);
+}
+
+.rock{
+background-color:darkolivegreen;
+}
+
+.paper{
+    background-color: papayawhip;
+}
+
+.scissor{
+    background-color: dimgray;
+}
+
+.bottom-holder {
+border: none;
+display: flex;
+justify-content: space-between;
+margin-top: 100px;
+width: 83%;
+}
+
