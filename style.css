@@ -54,23 +54,50 @@ body{
 	clip-path: inset( 50px 420px 50px 420px);
 }
 
-.rock{
+.imgbox.rock{
 background-color:darkolivegreen;
 }
 
-.paper{
+.imgbox.rock:hover{
+background-color: olivedrab;
+}
+
+.imgbox.paper{
     background-color: papayawhip;
 }
 
-.scissor{
+.imgbox.paper:hover{
+    background-color: snow;
+    }
+    
+
+.imgbox.scissor{
     background-color: dimgray;
 }
 
+.imgbox.scissor:hover{
+    background-color: grey;
+}
+
 .bottom-holder {
+font-size: larger;
 border: none;
 display: flex;
-justify-content: space-between;
 margin-top: 100px;
-width: 83%;
+width: 85%;
+height: 200px;
+justify-content: space-around;
+}
+
+a:link {
+color: brown;
+}
+
+a:visited {
+color: brown;
+}
+
+a:active, a:hover {
+color: darkolivegreen;
 }
 
