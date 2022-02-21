@@ -23,46 +23,55 @@ let round = 0;
 
 function playRound(playerSelection, computerSelection) {
     const results = document.querySelector('p.results');
+    const roundCounter = document.querySelector('p.roundCount');
     switch (playerSelection) {
         case 'rock':
             console.log(playerSelection)
             console.log(computerSelection)
             switch (computerSelection){
                 case 'rock':
-                    results.textContent= tie;
+                    results.textContent= 'Player chose '+playerSelection+'.Computer chose '+computerSelection+'. '+tie;
                     break;   
                 case 'paper':
-                    results.textContent= lose;
+                    results.textContent= 'Player chose '+playerSelection+'.Computer chose '+computerSelection+'. '+lose;
                     break;   
                 case 'scissors':
-                    results.textContent= win;
-                    console.log('player win')
+                    results.textContent= 'Player chose '+playerSelection+'.Computer chose '+computerSelection+'. '+win;
                     break;   
-                round=round+1;
-                break;        
             }
+            round=round+1;
+            roundCounter.textContent='round '+round;   
+            break;
         case 'paper':
             switch (computerSelection){
                 case 'rock':
-                    results.textContent= win;
+                    results.textContent= 'Player chose '+playerSelection+'.Computer chose '+computerSelection+'. '+win;
+                    break;
                 case 'paper':
-                    results.textContent= tie;
+                    results.textContent= 'Player chose '+playerSelection+'.Computer chose '+computerSelection+'. '+tie;
+                    break;
                 case 'scissors':
-                    results.textContent= lose;
-                round=round+1;
-                return        
+                    results.textContent= 'Player chose '+playerSelection+'.Computer chose '+computerSelection+'. '+lose;
+                    break;
             }
+            round=round+1;
+            roundCounter.textContent='round '+round;   
+            break;
         case 'scissors':
             switch (computerSelection){
                 case 'rock':
-                    results.textContent= lose;
+                    results.textContent= 'Player chose '+playerSelection+'.Computer chose '+computerSelection+'. '+lose;
+                    break;
                 case 'paper':
-                    results.textContent= win;
+                    results.textContent= 'Player chose '+playerSelection+'.Computer chose '+computerSelection+'. '+win;
+                    break;
                 case 'scissors':
-                    results.textContent= tie;
-                round=round+1;
-                return        
+                    results.textContent= 'Player chose '+playerSelection+'.Computer chose '+computerSelection+'. '+tie;
+                    break;
             }
+            round=round+1;
+            roundCounter.textContent='round '+round;   
+            break;
         default:
             results.textContent='';
     }
