@@ -20,14 +20,11 @@ let win = 'player wins!';
 let lose = 'player loses!';
 let round = 0;
 
-
 function playRound(playerSelection, computerSelection) {
     const results = document.querySelector('p.results');
     const roundCounter = document.querySelector('p.roundCount');
     switch (playerSelection) {
         case 'rock':
-            console.log(playerSelection)
-            console.log(computerSelection)
             switch (computerSelection){
                 case 'rock':
                     results.textContent= 'Player chose '+playerSelection+'.Computer chose '+computerSelection+'. '+tie;
@@ -84,3 +81,17 @@ function runGame(playerChoice){
     return
 }
 
+const btnScissors = document.querySelector('#btn-scissor');
+btnScissors.addEventListener('click', function (e) {
+    console.log(e.target)
+})
+
+const btnPaper = document.querySelector('#btn-paper');
+btnPaper.addEventListener('click', function (e) {
+    console.log(e.target)
+})
+
+const btnRock = document.querySelector('#btn-rock');
+btnRock.addEventListener('click', function (e) {
+    console.log(e.target)
+})
