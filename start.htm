@@ -10,19 +10,19 @@
     <body>
         <div class="body-holder">
             <p class="roundCount"></p>
-        <div class="top-holder">
-            <div class='imgbox rock'">
-                <img src="./images/stones.jpg" alt="a picture of a few colorful stones ">
-                <button id="btn-rock"  onclick="runGame('rock')">stones</button></div>
-            <div class='imgbox paper'>
-                <img src="./images/paper.jpg" alt="a picture of a wrinkled piece of paper">
-                <button id="btn-paper"   onclick="runGame('paper')">paper</button></div>
-            <div class='imgbox scissor'>
-                <img src="./images/scissors.jpg" alt="a picture of scissors">
-                <button id="btn-scissor"   onclick="runGame('scissors')">scissor</button></div>
-        </div>
+            <div class="top-holder">
+                <div class='imgbox rock btnRock'>
+                    <img src="./images/stones.jpg"  alt="a picture of a few colorful stones" 
+                    id="btnRock" onclick="runGame('rock')">stones</div> 
+                <div class='imgbox paper'>
+                    <img src="./images/paper.jpg" alt="a picture of a wrinkled piece of paper"
+                    id="btnPaper"   onclick="runGame('paper')">paper</div>
+                <div class='imgbox scissor'>
+                    <img src="./images/scissors.jpg" alt="a picture of scissors"
+                    id="btnScissors"   onclick="runGame('scissors')">scissor</div>
+            </div>
         <div class="bottom-holder">
-            <p class=results></p>
+            <p id=results></p>
         </div>
         </div>
     </body>

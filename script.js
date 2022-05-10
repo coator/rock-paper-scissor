@@ -15,60 +15,75 @@ function computerPlay() {
     return result
 }
 
-let tie = 'game is tied!';
-let win = 'player wins!';
-let lose = 'player loses!';
 let round = 0;
+let playerScore = 0;
+let computerScore = 0;
+
 
 function playRound(playerSelection, computerSelection) {
-    const results = document.querySelector('p.results');
+
+    const results = document.querySelector('#results');
     const roundCounter = document.querySelector('p.roundCount');
+
+    function gameOutcome(roundResult) {
+        if (roundResult =='win'){
+            results.textContent= 'Player chose '+playerSelection+' .Computer chose '+computerSelection+'. '+ 'Player Wins!';
+            playerScore++;
+            round++;
+        }
+        else if (roundResult =='lose'){
+            results.textContent= 'Player chose '+playerSelection+'.Computer chose '+computerSelection+'. '+ 'Player Loses :(!'; 
+            computerScore++;
+            round++;
+        }
+        else if (roundResult =='tie'){
+            results.textContent= 'Player chose '+playerSelection+'.Computer chose '+computerSelection+'. '+ 'Player ties!'; 
+            round++;
+        }
+        else {
+            results.textContent= 'An error has occurred.'
+        }
+        console.log(round)
+        roundCounter.textContent='round '+round;
+    }
+
     switch (playerSelection) {
         case 'rock':
             switch (computerSelection){
                 case 'rock':
-                    results.textContent= 'Player chose '+playerSelection+'.Computer chose '+computerSelection+'. '+tie;
-                    break;   
+                  gameOutcome('tie')
+                  break;
                 case 'paper':
-                    results.textContent= 'Player chose '+playerSelection+'.Computer chose '+computerSelection+'. '+lose;
-                    break;   
+                  gameOutcome('lose')
+                  break;  
                 case 'scissors':
-                    results.textContent= 'Player chose '+playerSelection+'.Computer chose '+computerSelection+'. '+win;
-                    break;   
+                  gameOutcome('win')
+                  break;
             }
-            round=round+1;
-            roundCounter.textContent='round '+round;   
-            break;
         case 'paper':
             switch (computerSelection){
                 case 'rock':
-                    results.textContent= 'Player chose '+playerSelection+'.Computer chose '+computerSelection+'. '+win;
+                    gameOutcome('win')
                     break;
                 case 'paper':
-                    results.textContent= 'Player chose '+playerSelection+'.Computer chose '+computerSelection+'. '+tie;
+                  gameOutcome('tie')
                     break;
                 case 'scissors':
-                    results.textContent= 'Player chose '+playerSelection+'.Computer chose '+computerSelection+'. '+lose;
+                  gameOutcome('lose')
                     break;
             }
-            round=round+1;
-            roundCounter.textContent='round '+round;   
-            break;
         case 'scissors':
             switch (computerSelection){
                 case 'rock':
-                    results.textContent= 'Player chose '+playerSelection+'.Computer chose '+computerSelection+'. '+lose;
+                  gameOutcome('lose')
                     break;
                 case 'paper':
-                    results.textContent= 'Player chose '+playerSelection+'.Computer chose '+computerSelection+'. '+win;
+                    gameOutcome('win')
                     break;
                 case 'scissors':
-                    results.textContent= 'Player chose '+playerSelection+'.Computer chose '+computerSelection+'. '+tie;
+                  gameOutcome('tie')
                     break;
             }
-            round=round+1;
-            roundCounter.textContent='round '+round;   
-            break;
         default:
             results.textContent='';
     }
@@ -81,17 +96,17 @@ function runGame(playerChoice){
     return
 }
 
-const btnScissors = document.querySelector('#btn-scissor');
+const btnScissors = document.querySelector('#btnScissors');
 btnScissors.addEventListener('click', function (e) {
     console.log(e.target)
 })
 
-const btnPaper = document.querySelector('#btn-paper');
+const btnPaper = document.querySelector('#btnPaper');
 btnPaper.addEventListener('click', function (e) {
     console.log(e.target)
 })
 
-const btnRock = document.querySelector('#btn-rock');
+const btnRock = document.querySelector('#btnRock');
 btnRock.addEventListener('click', function (e) {
     console.log(e.target)
 })
