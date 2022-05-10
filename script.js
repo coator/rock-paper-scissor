@@ -1,5 +1,104 @@
 "use strict"
 
+
+let round = 0;
+let playerScore = 0;
+let computerScore = 0;
+let winner = false;
+
+const btnScissors = document.getElementById('btnScissors');
+const btnPaper = document.getElementById('btnPaper');
+const btnRock = document.getElementById('btnRock');
+
+
+
+function playRound(playerSelection, computerSelection) {
+    const results = document.querySelector('#results');
+    const roundCounter = document.querySelector('p.roundCount');
+    const currentRoundStr = 'round '+round+ ' Player Score:' + playerScore + ' Computer Score:'+ computerScore;
+
+    function gameOutcome(roundResult) {
+
+        function endGame(){
+
+            if (playerScore > 4 ) {
+                roundCounter.textContent ='Player Wins!';
+                results.textContent ='Player Wins!';
+                winner = true
+            }
+            else if (computerScore > 4){
+                roundCounter.textContent='Computer Wins!';
+                results.textContent='Computer Wins!';
+                winner = true
+                }
+            else{roundCounter.textContent=currentRoundStr;
+            results.textContent= 'Player chose '+playerSelection+'. Computer chose '+computerSelection+'. '}
+            }
+
+        switch (roundResult){
+            case 'win':
+                round++;
+                playerScore++
+                endGame()
+                break
+
+            case 'lose':
+                round++;
+                computerScore++
+                endGame()
+                break
+
+            case 'tie':
+                round++;
+                endGame()
+                break
+            default:
+                break
+            }
+        }
+
+    switch (playerSelection) {
+        case 'rock':
+            switch (computerSelection){
+                case 'rock':
+                  gameOutcome('tie')
+                  break;
+                case 'paper':
+                  gameOutcome('lose')
+                  break;  
+                case 'scissors':
+                  gameOutcome('win')
+                  break;
+            } break
+        case 'paper':
+            switch (computerSelection){
+                case 'rock':
+                    gameOutcome('win')
+                    break;
+                case 'paper':
+                  gameOutcome('tie')
+                    break;
+                case 'scissors':
+                  gameOutcome('lose')
+                    break;
+            } break
+        case 'scissors':
+            switch (computerSelection){
+                case 'rock':
+                  gameOutcome('lose')
+                    break;
+                case 'paper':
+                    gameOutcome('win')
+                    break;
+                case 'scissors':
+                  gameOutcome('tie')
+                    break;
+            } break
+        default:
+            results.textContent='';
+    }
+}
+
 function computerPlay() {
     let select = Math.floor((Math.random() * 3))
     let result
@@ -15,98 +114,15 @@ function computerPlay() {
     return result
 }
 
-let round = 0;
-let playerScore = 0;
-let computerScore = 0;
-
-
-function playRound(playerSelection, computerSelection) {
-
-    const results = document.querySelector('#results');
-    const roundCounter = document.querySelector('p.roundCount');
-
-    function gameOutcome(roundResult) {
-        if (roundResult =='win'){
-            results.textContent= 'Player chose '+playerSelection+' .Computer chose '+computerSelection+'. '+ 'Player Wins!';
-            playerScore++;
-            round++;
-        }
-        else if (roundResult =='lose'){
-            results.textContent= 'Player chose '+playerSelection+'.Computer chose '+computerSelection+'. '+ 'Player Loses :(!'; 
-            computerScore++;
-            round++;
-        }
-        else if (roundResult =='tie'){
-            results.textContent= 'Player chose '+playerSelection+'.Computer chose '+computerSelection+'. '+ 'Player ties!'; 
-            round++;
-        }
-        else {
-            results.textContent= 'An error has occurred.'
-        }
-        console.log(round)
-        roundCounter.textContent='round '+round;
-    }
-
-    switch (playerSelection) {
-        case 'rock':
-            switch (computerSelection){
-                case 'rock':
-                  gameOutcome('tie')
-                  break;
-                case 'paper':
-                  gameOutcome('lose')
-                  break;  
-                case 'scissors':
-                  gameOutcome('win')
-                  break;
-            }
-        case 'paper':
-            switch (computerSelection){
-                case 'rock':
-                    gameOutcome('win')
-                    break;
-                case 'paper':
-                  gameOutcome('tie')
-                    break;
-                case 'scissors':
-                  gameOutcome('lose')
-                    break;
-            }
-        case 'scissors':
-            switch (computerSelection){
-                case 'rock':
-                  gameOutcome('lose')
-                    break;
-                case 'paper':
-                    gameOutcome('win')
-                    break;
-                case 'scissors':
-                  gameOutcome('tie')
-                    break;
-            }
-        default:
-            results.textContent='';
-    }
-}
 
 
 function runGame(playerChoice){
-    let computerSelection = computerPlay();
-    playRound(playerChoice, computerSelection)
-    return
+    if (winner == false){
+        let computerSelection = computerPlay();
+        playRound(playerChoice, computerSelection)
+        return
+    }
+    else{
+        return
+    }
 }
-
-const btnScissors = document.querySelector('#btnScissors');
-btnScissors.addEventListener('click', function (e) {
-    console.log(e.target)
-})
-
-const btnPaper = document.querySelector('#btnPaper');
-btnPaper.addEventListener('click', function (e) {
-    console.log(e.target)
-})
-
-const btnRock = document.querySelector('#btnRock');
-btnRock.addEventListener('click', function (e) {
-    console.log(e.target)
-})
